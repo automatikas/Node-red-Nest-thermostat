@@ -13,9 +13,9 @@ Also it has several display modes like heating, cooling and away. It makes it mo
 ![Nest html widget](https://www.ajso.lt/wp-content/uploads/2016/12/nest-html5-widget_away-180x180.png)
 
 ##How to install:
-Open and copy all text from widget.js then go to your node-red application and press `*import*` > `*cliboard*` paste the text and your done.
+Open and copy all text from widget.js then go to your node-red application and press `**import**` > `**cliboard**` paste the text and your done.
 
-* `*ambient_temperature*` your temperature readings numeric payloads.
+* `**ambient_temperature**` your temperature readings numeric payloads.
 * `*target_temperature*` your thermostat setpoint numeric payloads.
 * `*hvac_state*` string (off, heating, cooling) payload.
 * `*has_leave*` boolean (true, false) payloads.
