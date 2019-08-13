@@ -25,13 +25,13 @@ If you are familiar with CSS and JAVASSCRIPT there there are more stuff to custo
 
 Some options in the script:
 ```
-   options = {
-    diameter: options.diameter || 400,
-    minValue: options.minValue || 10, //Minimum value for target temperature
-    maxValue: options.maxValue || 30, //Maximum value for target temperature
-    numTicks: options.numTicks || 200, //Number of tick lines to display around the dial
-    onSetTargetTemperature: options.onSetTargetTemperature || function() {}, // Function called when new target temperature set by the dial
-    };
+options = {
+       diameter: options.diameter || 400,
+       minValue: options.minValue || 10, //Minimum value for target temperature
+       maxValue: options.maxValue || 30, //Maximum value for target temperature
+       numTicks: options.numTicks || 200, //Number of tick lines to display around the dial
+       onSetTargetTemperature: options.onSetTargetTemperature || function() {}, // Function called when new target temperature set by the dial
+};
 ```
 
 Widget can be rendered anywhere in the page. You just have to include div with thermostat ID.
