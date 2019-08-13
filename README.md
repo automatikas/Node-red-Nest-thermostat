@@ -1,14 +1,15 @@
 # NEST style thermostat Dashboard widget for Node-red
 
-![GitHub Logo](https://www.ajso.lt/wp-content/uploads/2016/12/nest-html5-widget-1.png)
-Format: ![Alt Text](url)
+If you have made heating or cooling controls on Node-red you will need nice thermostat widget to display and control your device via Node-red dashboard.
 
-
-This became my favorite thermostat widget for my house room temperature control so far i came across on the net.
+![Nest html widget](https://www.ajso.lt/wp-content/uploads/2016/12/nest-html5-widget-1.png)
 
 Fully responsive design. Touch enabled set-point makes it even more cool. Press and hold finger over and it will activate set point sliding function.
 
 Also it has several display modes like heating, cooling and away. It makes it more intractable and user intuitive. For more ECO friendly there is possible to turn on and off that little green leaf.
+
+![Nest html widget](https://www.ajso.lt/wp-content/uploads/2016/12/nest-html5-widget-1.png)
+![Nest html widget](https://www.ajso.lt/wp-content/uploads/2016/12/nest-html5-widget-1.png) ![Nest html widget](https://www.ajso.lt/wp-content/uploads/2016/12/nest-html5-widget-1.png)
 
 
 Let’s try to port this in Node-red. Data exchange is based on topics. You can can push separate payloads with specific topic. If you change the set-point in the web browser it will trigger back payload to node-red with topic `target_temperature` and a value.
