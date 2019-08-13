@@ -42,11 +42,12 @@ options = {
 ```
 ## What if I want several widgets on one page?
 
-import several widget just make sure you edit **uniq ID** in these 2 lines inside the UI_Template block.
+import several widget just make sure you edit **uniq ID** in these 2 lines inside the UI_Template block and function block that have global variables.
 
-`<div id="Mythermostat"></div>`
+`<div id="Mythermostat1"></div>`
 
-`var nest = new thermostatDial(document.getElementById('Mythermostat')`
+`var nest = new thermostatDial(document.getElementById('Mythermostat1')`
+
 
 ## Data persistance:
 
