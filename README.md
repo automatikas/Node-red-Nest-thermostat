@@ -12,20 +12,26 @@ Also it has several display modes like heating, cooling and away. It makes it mo
 ![Nest html widget](https://www.ajso.lt/wp-content/uploads/2016/12/nest-html5-widget_cooling-180x180.png) 
 ![Nest html widget](https://www.ajso.lt/wp-content/uploads/2016/12/nest-html5-widget_away-180x180.png)
 
-ambient_temperature, target_temperature are numeric (21.5) payloads.
-hvac_state is string (off, heating, cooling) payload.
-has_leave, away are boolean (true, false) payloads.
-If you familiar with CSS and JAVA there are more stuff to customize, colors, ranges etc.
+How to install:
+Open and copy all text from widget.js then go to your node-red application and press `import` > `cliboard` paste the text and your done.
 
-Some options in JAVA script:
+`ambient_temperature`
+`target_temperature`
+`hvac_state` is string (off, heating, cooling) payload.
+`has_leave`, 
+`away` are boolean (true, false) payloads.
 
-`options = {
+If you familiar with CSS and JAVA there there are more stuff to customize, colors, ranges etc.
+
+Some options in the script:
+
+```options = {
  diameter: options.diameter || 400,
  minValue: options.minValue || 10, //Minimum value for target temperature
  maxValue: options.maxValue || 30, //Maximum value for target temperature
  numTicks: options.numTicks || 200, //Number of tick lines to display around the dial
  onSetTargetTemperature: options.onSetTargetTemperature || function() {}, // Function called when new target temperature set by the dial
-};`
+};```
 
 Widget can be rendered anywhere in the page. You just have to include div with thermostat ID.
 
