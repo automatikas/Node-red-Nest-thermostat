@@ -14,13 +14,13 @@ Also it has several display modes like heating, cooling and away. It makes it mo
 ![Nest html widget](https://www.ajso.lt/wp-content/uploads/2016/12/nest-html5-widget_cooling-180x180.png) 
 ![Nest html widget](https://www.ajso.lt/wp-content/uploads/2016/12/nest-html5-widget_away-180x180.png)
 
-##How to install:
+## How to install:
 Open and copy all text from widget.js then go to your node-red application and press **`import`** > **`cliboard`** paste the text and your done.
 
 After import you should see somthing like this:
 ![Nest html widget](https://www.ajso.lt/wp-content/uploads/2016/12/nest-html5-node-red.png)
 
-##What data can I push to witget
+## What data can I push to witget
 
 * **`ambient_temperature`** your temperature readings numeric payloads.
 * **`target_temperature`** your thermostat setpoint numeric payloads.
@@ -30,7 +30,7 @@ After import you should see somthing like this:
 
 If you are familiar with CSS and JAVASSCRIPT there there are more stuff to customize, colors, ranges etc.
 
-##Some options in the script:
+## Some options in the script:
 ```
 options = {
        diameter: options.diameter || 400,
@@ -40,10 +40,14 @@ options = {
        onSetTargetTemperature: options.onSetTargetTemperature || function() {}, // Function called when new target temperature set by the dial
 };
 ```
-##What if I want several widgets on one page?
+## What if I want several widgets on one page?
 
 import several widget just make sure you edit **uniq ID** in these 2 lines inside the UI_Template block.
 
 `<div id="Mythermostat"></div>`
 
 `var nest = new thermostatDial(document.getElementById('Mythermostat')`
+
+## Data persistance:
+
+Every time you push new vaue to witged values are stored in global context of node-red.
