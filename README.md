@@ -51,4 +51,4 @@ import several widget just make sure you edit **uniq ID** in these 2 lines insid
 
 ## Data persistance:
 
-Every time you push new vaue to witged values are stored in global context of node-red.
+Every time you push new vaue to widged values are stored in global context of node-red.
