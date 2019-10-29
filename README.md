@@ -52,3 +52,7 @@ import several widget just make sure you edit **uniq ID** in these 2 lines insid
 ## Data persistance:
 
 Every time you push new vaue to widged values are stored in global context of node-red.
+
+## Issues:
+
+Use the GitHub issues log for raising issues or contributing suggestions and enhancements. [GITHUB](https://github.com/automatikas/Node-red-Nest-thermostat)
