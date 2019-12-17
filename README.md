@@ -79,7 +79,7 @@ You have to change script in these two functions:
     */
     function renderAmbientTemperature() {
     	lblAmbient_text.nodeValue = Math.floor(self.ambient_temperature);
-      setClass(lblAmbientHalf, 'shown', true);
+       setClass(lblAmbientHalf, 'shown', true);
     	lblAmbientHalf_text.nodeValue = (self.ambient_temperature % 1).toFixed(1).substring(2);
     }
 ```
