@@ -50,14 +50,14 @@ import several widget just make sure you edit **uniq ID** in these 2 lines insid
 
 ## What if I want  not to round temperature to .5 steps?
 
-You have to change script in these two functions:
+You have to replace these two functions in the main script:
 
 ```
     /*
     * RENDER - target temperature
     */
     function renderTargetTemperature() {
-      lblTarget_text.nodeValue = self.target_temperature;
+       lblTarget_text.nodeValue = self.target_temperature;
     	var peggedValue = restrictToRange(self.target_temperature, options.minValue, options.maxValue);
     	degs = properties.tickDegrees * (peggedValue - options.minValue) / properties.rangeValue - properties.offsetDegrees;
     	if (peggedValue > self.ambient_temperature) {
