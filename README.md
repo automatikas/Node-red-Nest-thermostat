@@ -48,6 +48,42 @@ import several widget just make sure you edit **uniq ID** in these 2 lines insid
 
 `var nest = new thermostatDial(document.getElementById('Mythermostat1')`
 
+## What if I want  not to round temperature to .5 steps?
+
+You have to change script in these two functions:
+
+```
+    /*
+    * RENDER - target temperature
+    */
+    function renderTargetTemperature() {
+      lblTarget_text.nodeValue = self.target_temperature;
+    	var peggedValue = restrictToRange(self.target_temperature, options.minValue, options.maxValue);
+    	degs = properties.tickDegrees * (peggedValue - options.minValue) / properties.rangeValue - properties.offsetDegrees;
+    	if (peggedValue > self.ambient_temperature) {
+    		degs += 8;
+    	} else {
+    		degs -= 8;
+    	}
+    	var pos = rotatePoint(properties.lblTargetPosition, degs, [properties.radius, properties.radius]);
+    	attr(lblTarget, {
+    		x: pos[0],
+    		y: pos[1]
+    	});
+    }
+```
+
+```
+    /*
+    * RENDER - ambient temperature
+    */
+    function renderAmbientTemperature() {
+    	lblAmbient_text.nodeValue = Math.floor(self.ambient_temperature);
+      setClass(lblAmbientHalf, 'shown', true);
+    	lblAmbientHalf_text.nodeValue = (self.ambient_temperature % 1).toFixed(1).substring(2);
+    }
+```
+
 
 ## Data persistance:
 
