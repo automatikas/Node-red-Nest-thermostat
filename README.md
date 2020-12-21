@@ -4,7 +4,7 @@ If you have made heating or cooling controls on Node-red you will need nice ther
 
 ![Nest html widget](https://www.ajso.lt/wp-content/uploads/2016/12/nest-html5-widget-1.png)
 
-Fully responsive design. Touch enabled set-point makes it even more cool. Press and hold finger or mouse and it will activate the set point sliding function.
+Fully responsive design. Touch enabled set-point makes it even more interactive. Press and hold finger or mouse and it will activate the set-point sliding function.
 
 Also it has several display modes like heating, cooling and away. It makes it more interactable and user intuitive. For ECO friendly folks there is possible to turn on and off that little green leaf. 
 
@@ -15,9 +15,9 @@ Also it has several display modes like heating, cooling and away. It makes it mo
 ![Nest html widget](https://www.ajso.lt/wp-content/uploads/2016/12/nest-html5-widget_away-180x180.png)
 
 ## How to install:
-Open and copy all text from widget.js then go to your node-red application and press **`import`** > **`cliboard`** paste the text and your done.
+Open and copy all text from widget.js then go to your node-red application and press **`import`** > **`cliboard`** paste the text and you are done.
 
-After import you should see somthing like this:
+After import you should see something like this:
 ![Nest html widget](https://www.ajso.lt/wp-content/uploads/2016/12/nest-html5-node-red.png)
 
 ## What data can I push to witget
@@ -59,7 +59,7 @@ Check example: [flow_round_to_0.1.json](examples/flow_round_to_0.1.json)
 
 ## Data persistance:
 
-Every time you push new vaue to widged values are stored in global context of node-red.
+Every time you push new values they are stored in global context of node-red.
 
 ## Issues:
 
