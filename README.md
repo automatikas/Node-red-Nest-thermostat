@@ -75,11 +75,6 @@ Check example: [flow_fahrenheit.json](examples/flow_fahrenheit.json)
 
 Check example: [flow_round_to_0.1.json](examples/flow_round_to_0.1.json)
 
-
-## Data persistance:
-
-Every time you push new values they are stored in global context of node-red.
-
 ## Issues:
 
 Use the GitHub issues log for raising issues or contributing suggestions and enhancements. [GITHUB](https://github.com/automatikas/Node-red-Nest-thermostat)
