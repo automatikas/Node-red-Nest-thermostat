@@ -39,7 +39,26 @@ options = {
        numTicks: options.numTicks || 200, //Number of tick lines to display around the dial
        onSetTargetTemperature: options.onSetTargetTemperature || function() {}, // Function called when new target temperature set by the dial
 };
+
+var properties = {
+       tickDegrees: 300, // Degrees of the dial that should be covered in tick lines
+       rangeValue: options.maxValue - options.minValue,
+       radius: options.diameter/2,
+       ticksOuterRadius: options.diameter / 30,
+       ticksInnerRadius: options.diameter / 8,
+       hvac_states: ['off', 'heating', 'cooling'],
+       dragLockAxisDistance: 15,
+       labels: {
+              targetLabel: 'Set',
+              ambientUnits: 'ºC'
+       }
+};
 ```
+
+## Target and unit labels
+
+Mode, target and units labels can be edited inside properties part of the code.
+
 ## What if I want several widgets on one page?
 
 import several widget just make sure you edit **uniq ID** in these 2 lines inside the UI_Template block and function block that have global variables.
