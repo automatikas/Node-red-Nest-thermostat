@@ -2,7 +2,7 @@
 
 If you have made heating or cooling controls on Node-red you will need nice thermostat widget to display and control your device via Node-red dashboard.
 
-![Nest html widget](https://www.ajso.lt/wp-content/uploads/2016/12/nest-html5-widget-1.png)
+![thermostat](https://user-images.githubusercontent.com/15208705/128023309-bf8d81c4-17be-40a7-912e-ec3fe8ce34a9.png)
 
 Fully responsive design. Touch enabled set-point makes it even more interactive. Press and hold finger or mouse and it will activate the set-point sliding function.
 
