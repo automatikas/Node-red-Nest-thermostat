@@ -66,7 +66,7 @@ var properties = {
 };
 ```
 
-## Target and unit labels
+## Translation to other languages
 
 Mode, target and units labels can be edited inside properties part of the code.
 
