@@ -8,27 +8,38 @@ Fully responsive design. Touch enabled set-point makes it even more interactive.
 
 Also it has several display modes like heating, cooling and away. It makes it more interactable and user intuitive. For ECO friendly folks there is possible to turn on and off that little green leaf. 
 
-> Don't forget you have to program your own logics for thermostat functions.
-
-![Nest html widget](https://www.ajso.lt/wp-content/uploads/2016/12/nest-html5-widget_heating-180x180.png)
-![Nest html widget](https://www.ajso.lt/wp-content/uploads/2016/12/nest-html5-widget_cooling-180x180.png) 
-![Nest html widget](https://www.ajso.lt/wp-content/uploads/2016/12/nest-html5-widget_away-180x180.png)
+![heating](https://user-images.githubusercontent.com/15208705/128031236-9d219f97-c6fc-4cee-84bd-82f597b53c54.png)
+![cooling](https://user-images.githubusercontent.com/15208705/128031234-ee0b535b-c40b-4278-8f57-6f6237847127.png)
+![away](https://user-images.githubusercontent.com/15208705/128031229-7ad1a5c1-af22-4a1d-bf8d-db6913c1f004.png)
 
 ## How to install:
-Open and copy all text from widget.js then go to your node-red application and press **`import`** > **`cliboard`** paste the text and you are done.
+Open and copy all text from flow.js then go to your node-red application and press **`import`** > **`cliboard`** paste the text and you are done.
 
 After import you should see something like this:
-![Nest html widget](https://www.ajso.lt/wp-content/uploads/2016/12/nest-html5-node-red.png)
+![noderedui](https://user-images.githubusercontent.com/15208705/128031528-b93ef1c9-ed68-49e1-b854-593c96162177.png)
 
-## What data can I push to witget
+## What data can I push in and out:
+
+You can push the folowing values in json format. When target temperature is changed from UI node will push new values in the same structure in the output.
 
 * **`ambient_temperature`** your temperature readings numeric payloads.
 * **`target_temperature`** your thermostat setpoint numeric payloads.
-* **`hvac_state`** string (off, heating, cooling) payload.
-* **`has_leave`** boolean (true, false) payloads.
-* **`away`** boolean (true, false) payloads.
+* **`hvac_state`** string (`off`, `heating`, `cooling`) payload.
+* **`has_leave`** boolean (`true`, `false`) payloads.
+* **`away`** boolean (`true`, `false`) payloads.
 
-If you are familiar with CSS and JAVASSCRIPT there there are more stuff to customize, colors, ranges etc.
+```
+msg.payload = {
+    "ambient_temperature": 21.1,
+    "target_temperature": 23,
+    "hvac_state": "heating",
+    "has_leaf": false,
+    "away": false
+}
+
+```
+
+If you are familiar with CSS and JAVASSCRIPT there there are more stuff to customize dial colors nd ranges etc.
 
 ## Some options in the script:
 ```
@@ -59,21 +70,43 @@ var properties = {
 
 Mode, target and units labels can be edited inside properties part of the code.
 
-## What if I want several widgets on one page?
+## What if I want several widgets on one dashboard page?
 
-import several widget just make sure you edit **uniq ID** in these 2 lines inside the UI_Template block and function block that have global variables.
+import several widgets just make sure you edit **uniq ID** in these 2 lines inside the code of UI_Template block. Top of the code.
 
-`<div id="Mythermostat1"></div>`
+`<div id="thermostat1"></div>`
 
-`var nest = new thermostatDial(document.getElementById('Mythermostat1')`
+`var thermostatId = "thermostat1";`
 
 ## What if I want farenheit units?
 
-Check example: [flow_fahrenheit.json](examples/flow_fahrenheit.json)
+change `minValue` and `maxValue` temperatures to Farenheit in the options part of the code. The rest should be fine.
+
+```
+options = {
+       diameter: options.diameter || 400,
+       minValue: options.minValue || 50, // Minimum value for target temperature Farenheit
+       maxValue: options.maxValue || 86, // Maximum value for target temperature Farenheit
+       numTicks: options.numTicks || 200, // Number of tick lines to display around the dial
+       onSetTargetTemperature: options.onSetTargetTemperature || function() {}, // Function called when new target temperature set by the dial
+};
+```
 
 ## What if I want to round temperatures to .1 steps?
 
-Check example: [flow_round_to_0.1.json](examples/flow_round_to_0.1.json)
+Search the code and find `roundHalf` function:
+```
+function roundHalf(num) {	
+       return Math.round(num*2)/2;	
+}	
+```
+
+Change to this:
+```
+function roundHalf(num) {	
+       return Math.round(num*10)/10;	
+}	
+```
 
 ## Issues:
 
