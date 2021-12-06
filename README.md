@@ -84,6 +84,7 @@ change `minValue` and `maxValue` temperatures to Farenheit in the options part o
 
 ```
 options = {
+       targetOnCenter: options.targetOnCenter || true, //Display target temperature in center of dial. Otherwise, display ambient temperature
        diameter: options.diameter || 400,
        minValue: options.minValue || 50, // Minimum value for target temperature Farenheit
        maxValue: options.maxValue || 86, // Maximum value for target temperature Farenheit
@@ -106,6 +107,15 @@ Change to this:
 function roundHalf(num) {	
        return Math.round(num*10)/10;	
 }	
+```
+
+## What if I want to display ambient temperature in center of dial?
+
+Search the code and find `targetOnCenter` and set it to `false`
+```
+options = {
+       targetOnCenter: false, //Display target temperature in center of dial. Otherwise, display ambient temperature
+};
 ```
 
 ## Issues:
