@@ -103,9 +103,13 @@
 			diameter: options.diameter || 400,
 			minValue: options.minValue || 10, // Minimum value for target temperature
 			maxValue: options.maxValue || 30, // Maximum value for target temperature
+			toggleValues: options.toggleValues || [10,22,30], // Values for toggling
 			numTicks: options.numTicks || 200, // Number of tick lines to display around the dial
 			onSetTargetTemperature: options.onSetTargetTemperature || function() {}, // Function called when new target temperature set by the dial
+			onToggleTargetTemperature: options.onToggleTargetTemperature || function() {}, // Function called when new target temperature is toggled by tapping the dial
 		};
+		// restrict toggleValues to valid range
+		options.toggleValues = options.toggleValues.map(v => {return (v < options.minValue) ? options.minValue : (v > options.maxValue) ? options.maxValue : v});
 		
 		/*
 		 * Properties - calculated from options in many cases
@@ -438,11 +442,16 @@
 		function dragEnd (ev) {
 			clearTimeout(startDelay);
 			setClass(svg, 'dial--edit', false);
-			if (!_drag.inProgress) return;
-			_drag.inProgress = false;
-			if (self.target_temperature != _drag.startTemperature) {
-				if (typeof options.onSetTargetTemperature == 'function') {
-					options.onSetTargetTemperature(self.target_temperature);
+			if (!_drag.inProgress) { // Tap / Toggle Mode (not on mouseleave)
+				if (ev.type != "mouseleave" && typeof options.onToggleTargetTemperature == 'function') {
+					options.onToggleTargetTemperature();
+				};
+			} else { // Drag / Set Mode
+				_drag.inProgress = false;
+				if (self.target_temperature != _drag.startTemperature) {
+					if (typeof options.onSetTargetTemperature == 'function') {
+						options.onSetTargetTemperature(self.target_temperature);
+					};
 				};
 			};
 		};
@@ -526,6 +535,11 @@ var initializing = true;
     	        "away":nest.away
     	    };
     		scope.send({topic: thermostatId, payload: p});
+      },
+      onToggleTargetTemperature: function() {
+          var next = this.toggleValues.indexOf(nest.target_temperature) + 1;
+          var v = (next < this.toggleValues.length) ? this.toggleValues[next] : this.toggleValues[0];
+          this.onSetTargetTemperature(v);
     	}
     });
     

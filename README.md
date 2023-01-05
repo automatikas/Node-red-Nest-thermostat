@@ -118,6 +118,15 @@ options = {
 };
 ```
 
+## What if I want to change the toggle steps on tapping / clicking the dial?
+
+Search the code and find `toggleValues` and set it to whatever list of values you want to toggle through. You can choose as many values as you like. Toggling will step through from left to right and back to start.
+```
+options = {
+       toggleValues: options.toggleValues || [10,22,30], // Values for toggling
+};
+```
+
 ## Issues:
 
 Use the GitHub issues log for raising issues or contributing suggestions and enhancements. [GITHUB](https://github.com/automatikas/Node-red-Nest-thermostat)
